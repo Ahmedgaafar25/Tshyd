@@ -32,7 +32,7 @@
     <style>
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 5.5rem;
+            scroll-padding-top: 4.5rem;
             overflow-x: hidden;
         }
         body {
@@ -44,9 +44,10 @@
             font-family: 'Montserrat', sans-serif;
         }
         .hero-bg {
-            background: linear-gradient(rgba(24, 24, 27, 0.88), rgba(24, 24, 27, 0.78)), url('https://images.unsplash.com/photo-1541888946425-d09bb18086f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.78) 0%, rgba(15, 23, 42, 0.88) 100%), url('kalba_breakwater.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
+            background-repeat: no-repeat;
             background-attachment: scroll;
         }
         @media (min-width: 768px) {
@@ -57,35 +58,51 @@
         .service-card:hover {
             transform: translateY(-5px);
         }
-        .lang-en { display: none; }
-        html[lang="en"] .lang-en { display: block; }
-        html[lang="en"] .lang-ar { display: none; }
-        
-        html[lang="en"] span.lang-en, html[lang="en"] a.lang-en, html[lang="en"] p.lang-en, html[lang="en"] h1.lang-en, html[lang="en"] h2.lang-en, html[lang="en"] h3.lang-en { display: inline-block; }
-        html[lang="ar"] span.lang-ar, html[lang="ar"] a.lang-ar, html[lang="ar"] p.lang-ar, html[lang="ar"] h1.lang-ar, html[lang="ar"] h2.lang-ar, html[lang="ar"] h3.lang-ar { display: inline-block; }
+
+        /* تحكم صارم وغير قابل للتجاوز في إظهار وإخفاء اللغات لمنع أي تداخل */
+        html[lang="ar"] .lang-en,
+        html:not([lang="en"]) .lang-en {
+            display: none !important;
+        }
+
+        html[lang="en"] .lang-ar {
+            display: none !important;
+        }
+
+        html[lang="ar"] .lang-ar.block { display: block !important; }
+        html[lang="ar"] .lang-ar.inline-block { display: inline-block !important; }
+        html[lang="ar"] .lang-ar.flex { display: flex !important; }
+        html[lang="ar"] .lang-ar.inline-flex { display: inline-flex !important; }
+        html[lang="ar"] .lang-ar:not(.block):not(.inline-block):not(.flex):not(.inline-flex) { display: inline !important; }
+
+        html[lang="en"] .lang-en.block { display: block !important; }
+        html[lang="en"] .lang-en.inline-block { display: inline-block !important; }
+        html[lang="en"] .lang-en.flex { display: flex !important; }
+        html[lang="en"] .lang-en.inline-flex { display: inline-flex !important; }
+        html[lang="en"] .lang-en:not(.block):not(.inline-block):not(.flex):not(.inline-flex) { display: inline !important; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
     <!-- شريط التنقل (Navbar) -->
-    <nav class="bg-white/95 backdrop-blur-md text-primary fixed w-full z-50 shadow-md border-b border-slate-200 transition-all duration-300">
+    <nav class="bg-white/95 backdrop-blur-md text-primary fixed top-0 w-full z-50 shadow-sm border-b border-slate-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 sm:h-24 items-center">
+            <div class="flex justify-between h-16 sm:h-20 items-center">
                 <!-- الشعار الرسمي الجديد TSHYD -->
-                <a href="#home" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-                    <div class="w-11 h-11 sm:w-16 sm:h-16 flex items-center justify-center shrink-0 bg-white rounded-lg p-1 border border-secondary/30 shadow-sm">
-                        <img src="tshyd_emblem.png" alt="TSHYD Emblem" class="w-full h-full object-contain">
+                <a href="#home" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 bg-white rounded-xl p-1 border border-secondary/30 shadow-xs">
+                        <img src="tshyd_emblem.png" alt="TSHYD" class="w-full h-full object-contain">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-cinzel font-extrabold text-lg sm:text-2xl md:text-3xl tracking-widest leading-none text-primary">TSHYD</span>
-                        <span class="hidden sm:block text-[9px] sm:text-[11px] md:text-xs font-bold text-slate-700 tracking-[0.14em] sm:tracking-[0.18em] mt-1">INTERNATIONAL CONTRACTING</span>
-                        <div class="flex items-center gap-1.5 sm:gap-2 mt-0.5 sm:mt-1">
-                            <span class="text-[8px] sm:text-[9px] font-bold text-slate-500 tracking-wider uppercase">UNITED ARAB EMIRATES</span>
+                        <span class="font-cinzel font-extrabold text-lg sm:text-2xl tracking-wider leading-none text-primary">TSHYD</span>
+                        <span class="hidden md:block text-[10px] sm:text-xs font-bold text-slate-600 tracking-[0.16em] mt-0.5">INTERNATIONAL CONTRACTING</span>
+                        <div class="flex items-center gap-1.5 mt-0.5">
+                            <span class="text-[8px] sm:text-[9px] font-bold text-slate-500 tracking-wider uppercase">UAE</span>
                             <div class="flex items-center gap-1">
-                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-uaered inline-block"></span>
-                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-uaegreen inline-block"></span>
-                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white border border-slate-400 inline-block"></span>
-                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary inline-block"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-uaered inline-block"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-uaegreen inline-block"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-white border border-slate-400 inline-block"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
                             </div>
                         </div>
                     </div>
@@ -115,21 +132,22 @@
                     <a href="#contact" class="text-primary hover:text-secondary transition lang-en">Contact</a>
 
                     <!-- زر تغيير اللغة -->
-                    <button onclick="toggleLanguage()" class="bg-primary text-secondary border border-secondary px-3 sm:px-4 py-1.5 sm:py-2 rounded font-bold hover:bg-secondary hover:text-white transition flex items-center gap-1.5 shadow-sm">
+                    <button onclick="toggleLanguage()" class="bg-primary text-secondary border border-secondary px-3 py-1.5 rounded-lg font-bold hover:bg-secondary hover:text-white transition flex items-center gap-1.5 shadow-sm text-xs">
                         <i class="fas fa-globe text-xs"></i>
                         <span class="lang-ar">EN</span>
                         <span class="lang-en">عربي</span>
                     </button>
                 </div>
 
-                <!-- زر القائمة للموبايل -->
+                <!-- زر القائمة والموبايل -->
                 <div class="lg:hidden flex items-center gap-2">
-                    <button onclick="toggleLanguage()" class="bg-primary text-secondary px-2.5 py-1.5 rounded font-bold text-xs border border-secondary/40">
+                    <button onclick="toggleLanguage()" class="bg-slate-100 text-primary hover:bg-secondary hover:text-white px-2.5 py-1.5 rounded-lg font-bold text-xs border border-slate-300 transition flex items-center gap-1">
+                        <i class="fas fa-globe text-[11px] text-secondary"></i>
                         <span class="lang-ar">EN</span>
                         <span class="lang-en">عربي</span>
                     </button>
                     <button id="mobile-menu-btn" class="text-primary hover:text-secondary focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Toggle navigation">
-                        <i id="menu-icon" class="fas fa-bars text-xl"></i>
+                        <i id="menu-icon" class="fas fa-bars text-lg"></i>
                     </button>
                 </div>
             </div>
@@ -161,41 +179,42 @@
     </nav>
 
     <!-- القسم الرئيسي (Hero Section) متجاوب ومريح لجميع الشاشات -->
-    <section id="home" class="hero-bg min-h-[92vh] sm:min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-24 sm:pt-36 pb-12 sm:pb-20">
-        <div class="max-w-5xl mx-auto text-white">
+    <section id="home" class="hero-bg min-h-0 sm:min-h-[88vh] flex flex-col justify-start sm:justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16">
+        <div class="max-w-4xl mx-auto text-white w-full">
             <!-- الشعار الرسمي في المنتصف -->
-            <div class="w-32 sm:w-48 md:w-56 mx-auto mb-4 sm:mb-6 bg-white/95 p-3 sm:p-5 rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-secondary flex items-center justify-center backdrop-blur-sm">
-                <img src="tshyd_logo.png" alt="TSHYD Logo" class="w-full h-auto object-contain">
+            <div class="w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 mx-auto mb-3.5 sm:mb-5 bg-white/95 p-2 sm:p-3.5 rounded-2xl sm:rounded-3xl shadow-xl border-2 border-secondary flex items-center justify-center backdrop-blur-xs">
+                <img src="tshyd_logo.png" alt="TSHYD Logo" class="w-full h-full object-contain">
             </div>
 
-            <div class="inline-flex items-center gap-2 sm:gap-3 bg-secondary/20 border border-secondary text-secondary px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
-                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-uaegreen"></span>
+            <!-- شارة التواجد الإقليمي -->
+            <div class="inline-flex items-center gap-1.5 sm:gap-2.5 bg-slate-900/80 border border-secondary/50 text-secondary px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-bold mb-3 sm:mb-5 shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-uaegreen shrink-0"></span>
                 <span class="lang-ar">الإمارات • مصر • سلطنة عُمان • السعودية</span>
                 <span class="lang-en">UAE • Egypt • Oman • Saudi Arabia</span>
-                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-uaered"></span>
+                <span class="w-2 h-2 rounded-full bg-uaered shrink-0"></span>
             </div>
             
-            <!-- عنوان رئيسي مع خط متجاوب ومريح -->
-            <h1 class="text-xl sm:text-3xl md:text-5xl font-extrabold mb-4 sm:mb-6 leading-tight sm:leading-tight md:leading-normal">
-                <span class="lang-ar block mb-1.5 sm:mb-3">الريادة في الإنشاءات البحرية،</span>
+            <!-- عنوان رئيسي متجاوب وجذاب -->
+            <h1 class="text-xl sm:text-3xl md:text-5xl font-black mb-3 sm:mb-5 leading-snug sm:leading-tight">
+                <span class="lang-ar block text-white mb-1">الريادة في الإنشاءات البحرية،</span>
                 <span class="lang-ar block text-secondary">التكريك، ومشاريع البنية التحتية الكبرى</span>
                 
-                <span class="lang-en block mb-1.5 sm:mb-3">Pioneers in Marine Construction,</span>
+                <span class="lang-en block text-white mb-1">Pioneers in Marine Construction,</span>
                 <span class="lang-en block text-secondary">Dredging & Mega Infrastructure</span>
             </h1>
             
-            <p class="text-xs sm:text-base md:text-lg text-slate-200 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-1 sm:px-0">
+            <p class="text-xs sm:text-sm md:text-base text-slate-200/90 mb-5 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-1 sm:px-0">
                 <span class="lang-ar">شركة تشييد للمقاولات الدولية (فرع شركة البحر الأحمر العالمية للمقاولات والتجارة) تقدم حلولاً هندسية متكاملة في الأعمال البحرية، تعميق الموانئ، كواسر الأمواج، الطرق، والأعمال الكهروميكانيكية بأسطول يضم 16 كراكة بحرية وأكثر من 1500 خبير ومهندس.</span>
                 <span class="lang-en">TSHYD International Contracting (Branch of Al Bahar Al Ahmar International Contracting) delivers turnkey marine engineering, port dredging, breakwaters, roads, and MEP works powered by 16 advanced dredgers and 1,500+ professionals.</span>
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-sm sm:max-w-none mx-auto">
-                <a href="#projects" class="bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-lg hover:bg-amber-600 hover:text-white transition shadow-lg text-center flex items-center justify-center gap-2">
+            <div class="flex flex-col sm:flex-row gap-2.5 sm:gap-4 justify-center items-center w-full max-w-xs sm:max-w-none mx-auto">
+                <a href="#projects" class="w-full sm:w-auto bg-secondary text-primary font-bold px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-base hover:bg-amber-600 hover:text-white transition shadow-lg flex items-center justify-center gap-2">
                     <span class="lang-ar">استكشف مشاريعنا في الإمارات ومصر</span>
                     <span class="lang-en">Explore Our UAE & Egypt Projects</span>
                     <i class="fas fa-arrow-down text-xs"></i>
                 </a>
-                <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-lg hover:bg-white hover:text-primary transition text-center flex items-center justify-center gap-2">
+                <a href="#contact" class="w-full sm:w-auto bg-white/10 hover:bg-white hover:text-primary text-white border border-white/40 backdrop-blur-xs font-bold px-6 py-3 sm:py-3.5 rounded-xl text-xs sm:text-base transition flex items-center justify-center gap-2">
                     <span class="lang-ar">تواصل مع الإدارة الهندسية</span>
                     <span class="lang-en">Contact Engineering Dept</span>
                     <i class="fas fa-envelope text-xs"></i>
@@ -205,31 +224,37 @@
     </section>
 
     <!-- قسم الإحصائيات الرسمية من البروفايل -->
-    <section class="bg-primary text-white py-10 sm:py-14 border-b-4 border-secondary">
+    <section class="bg-primary text-white py-8 sm:py-12 border-b-4 border-secondary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-6 text-center">
-                <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-center shadow-sm">
-                    <div class="text-2xl sm:text-4xl font-black text-secondary mb-1 tracking-tight">+35</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-ar">عاماً من الخبرة الهندسية</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-en">Years of Engineering Experience</div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-2.5 sm:gap-4 lg:gap-6 text-center">
+                <div class="bg-slate-800/70 backdrop-blur-xs border border-slate-700/70 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col justify-center shadow-xs">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mb-0.5 sm:mb-1 tracking-tight">+35</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-ar">عاماً من الخبرة الهندسية</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-en">Years of Experience</div>
                 </div>
-                <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-center shadow-sm">
-                    <div class="text-2xl sm:text-4xl font-black text-secondary mb-1 tracking-tight">+1,500</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-ar">مهندس، غواص، وفني متخصص</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-en">Engineers, Divers & Staff</div>
+                <div class="bg-slate-800/70 backdrop-blur-xs border border-slate-700/70 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col justify-center shadow-xs">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mb-0.5 sm:mb-1 tracking-tight">+1,500</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-ar">مهندس، غواص، وفني</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-en">Engineers, Divers & Staff</div>
                 </div>
-                <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-center shadow-sm">
-                    <div class="text-2xl sm:text-4xl font-black text-secondary mb-1 tracking-tight">16</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-ar">كراكة بحرية (7M م³/شهرياً)</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-en">Dredgers (7M m³/Month)</div>
+                <div class="bg-slate-800/70 backdrop-blur-xs border border-slate-700/70 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col justify-center shadow-xs">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mb-0.5 sm:mb-1 tracking-tight">16</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-ar">كراكة (7M م³/شهرياً)</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-en">Dredgers (7M m³/Mo)</div>
                 </div>
-                <div class="bg-slate-800/60 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-center shadow-sm">
-                    <div class="text-2xl sm:text-4xl font-black text-secondary mb-1 tracking-tight">$250M</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-ar">العائد السنوي (497M درهم)</div>
-                    <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-en">Annual Revenue (AED 497M)</div>
+                <div class="bg-slate-800/70 backdrop-blur-xs border border-slate-700/70 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col justify-center shadow-xs">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mb-0.5 sm:mb-1 tracking-tight">$250M</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-ar">العائد (497M درهم)</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-en">Revenue (AED 497M)</div>
                 </div>
-                <div class="col-span-2 md:col-span-1 bg-slate-800/60 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-3.5 sm:p-5 flex flex-col justify-center shadow-sm">
-                    <div class="text-2xl sm:text-4xl font-black text-secondary mb-1 tracking-tight">4</div>
+                <div class="col-span-2 md:col-span-1 bg-slate-800/70 backdrop-blur-xs border border-slate-700/70 rounded-xl sm:rounded-2xl p-3 sm:p-5 flex flex-col justify-center shadow-xs">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-black text-secondary mb-0.5 sm:mb-1 tracking-tight">4</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-ar">دول (الإمارات، مصر، عُمان، السعودية)</div>
+                    <div class="text-[10px] sm:text-xs text-slate-300 leading-snug lang-en">Countries (UAE, Egypt, Oman, KSA)</div>
+                </div>
+            </div>
+        </div>
+    </section>
                     <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-ar">دول إقليمية (الإمارات، مصر، عُمان، السعودية)</div>
                     <div class="text-[11px] sm:text-xs text-slate-300 leading-snug lang-en">Regional Presence (UAE, Egypt, Oman, KSA)</div>
                 </div>
@@ -238,91 +263,91 @@
     </section>
 
     <!-- قسم عن الشركة (About Us) -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-12 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div>
-                    <div class="text-secondary font-bold tracking-wider uppercase mb-2">
+                    <div class="text-secondary font-bold tracking-wider uppercase mb-1.5 sm:mb-2 text-xs sm:text-sm">
                         <span class="lang-ar">من نحن | نبذة عن الشركة</span>
                         <span class="lang-en">ABOUT TSHYD INTERNATIONAL</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 leading-snug">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 sm:mb-6 leading-snug">
                         <span class="lang-ar">تشيد العالمية للمقاولات (فرع شركة البحر الأحمر العالمية للمقاولات والتجارة)</span>
                         <span class="lang-en">TSHYD International Contracting (Br. of Al Bahar Al Ahmar International)</span>
                     </h2>
-                    <p class="text-slate-600 leading-relaxed mb-4 lang-ar">
+                    <p class="text-slate-600 leading-relaxed mb-3 sm:mb-4 text-xs sm:text-base lang-ar">
                         تأسست مجموعتنا الأم في عام <strong>1991</strong>، ومنذ عام 2008 توسعت عملياتنا في قطاع الإنشاءات البحرية والأعمال الملاحية، وصولاً إلى تأسيس فروعنا المعتمدة في <strong>دبي والشارقة بدولة الإمارات العربية المتحدة</strong> وسلطنة عُمان والمملكة العربية السعودية وجمهورية مصر العربية.
                     </p>
-                    <p class="text-slate-600 leading-relaxed mb-4 lang-en">
+                    <p class="text-slate-600 leading-relaxed mb-3 sm:mb-4 text-xs sm:text-base lang-en">
                         Founded in <strong>1991</strong>, our group has been a major provider of Engineering, General Contracting, and Marine Construction services. Operating across the <strong>UAE (Dubai & Sharjah), Egypt, Oman, and Saudi Arabia</strong>, we serve government authorities and multinational developers.
                     </p>
-                    <p class="text-slate-600 leading-relaxed mb-6 lang-ar">
+                    <p class="text-slate-600 leading-relaxed mb-5 sm:mb-6 text-xs sm:text-base lang-ar">
                         نحن متخصصون في تنفيذ المشاريع البحرية الكبرى مثل التكريك وتعميق الموانئ، إنشاء كواسر الأمواج، الأرصفة البحرية، منزلقات القوارب، خطوط الأنابيب البحرية، ومآخذ المياه، بالإضافة إلى مشاريع الطرق والبنية التحتية والأعمال الميكانيكية ومحطات معالجة المياه.
                     </p>
-                    <p class="text-slate-600 leading-relaxed mb-6 lang-en">
+                    <p class="text-slate-600 leading-relaxed mb-5 sm:mb-6 text-xs sm:text-base lang-en">
                         We specialize in complex marine works including dredging, sea deepening, breakwaters, jetty and quay wall construction, slipways, subsea pipelines, water intake structures, road contracting, and heavy mechanical installations.
                     </p>
 
-                    <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                        <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border-s-4 border-secondary shadow-sm border border-slate-200/80">
-                            <h3 class="font-bold text-primary mb-1 lang-ar"><i class="fas fa-chart-line text-secondary ms-1"></i> الملاءة المالية (2024)</h3>
-                            <h3 class="font-bold text-primary mb-1 lang-en"><i class="fas fa-chart-line text-secondary me-1"></i> Financial Strength (2024)</h3>
-                            <p class="text-xs text-slate-600 lang-ar leading-relaxed">إجمالي الأصول: <strong>789.3 مليون درهم</strong> | حجم الأعمال: <strong>497 مليون درهم</strong> | الاحتياطي: <strong>218.9 مليون درهم</strong>.</p>
-                            <p class="text-xs text-slate-600 lang-en leading-relaxed">Total Assets: <strong>AED 789.3M</strong> | Turnover: <strong>AED 497M</strong> | Reserves: <strong>AED 218.9M</strong>.</p>
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
+                        <div class="bg-slate-50 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-s-4 border-secondary shadow-xs border border-slate-200/80">
+                            <h3 class="font-bold text-primary mb-1 text-sm sm:text-base lang-ar"><i class="fas fa-chart-line text-secondary ms-1"></i> الملاءة المالية (2024)</h3>
+                            <h3 class="font-bold text-primary mb-1 text-sm sm:text-base lang-en"><i class="fas fa-chart-line text-secondary me-1"></i> Financial Strength (2024)</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 lang-ar leading-relaxed">إجمالي الأصول: <strong>789.3 مليون درهم</strong> | حجم الأعمال: <strong>497 مليون درهم</strong> | الاحتياطي: <strong>218.9 مليون درهم</strong>.</p>
+                            <p class="text-[11px] sm:text-xs text-slate-600 lang-en leading-relaxed">Total Assets: <strong>AED 789.3M</strong> | Turnover: <strong>AED 497M</strong> | Reserves: <strong>AED 218.9M</strong>.</p>
                         </div>
-                        <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border-s-4 border-primary shadow-sm border border-slate-200/80">
-                            <h3 class="font-bold text-primary mb-1 lang-ar"><i class="fas fa-users-cog text-secondary ms-1"></i> القوى البشرية (1500 موظف)</h3>
-                            <h3 class="font-bold text-primary mb-1 lang-en"><i class="fas fa-users-cog text-secondary me-1"></i> Manpower (1,500 Staff)</h3>
-                            <p class="text-xs text-slate-600 lang-ar leading-relaxed">1000 أعمال مدنية، 100 كواسر أمواج، 100 تكريك، 100 منصات بحرية، وغواصون ومساحون محترفون.</p>
-                            <p class="text-xs text-slate-600 lang-en leading-relaxed">1,000 Civil, 100 Breakwaters, 100 Dredging, 100 Platforms, plus certified divers & surveyors.</p>
+                        <div class="bg-slate-50 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-s-4 border-primary shadow-xs border border-slate-200/80">
+                            <h3 class="font-bold text-primary mb-1 text-sm sm:text-base lang-ar"><i class="fas fa-users-cog text-secondary ms-1"></i> القوى البشرية (1500 موظف)</h3>
+                            <h3 class="font-bold text-primary mb-1 text-sm sm:text-base lang-en"><i class="fas fa-users-cog text-secondary me-1"></i> Manpower (1,500 Staff)</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-600 lang-ar leading-relaxed">1000 أعمال مدنية، 100 كواسر أمواج، 100 تكريك، 100 منصات بحرية، وغواصون ومساحون محترفون.</p>
+                            <p class="text-[11px] sm:text-xs text-slate-600 lang-en leading-relaxed">1,000 Civil, 100 Breakwaters, 100 Dredging, 100 Platforms, plus certified divers & surveyors.</p>
                         </div>
                     </div>
 
-                    <div class="bg-gradient-to-r from-primary to-slate-900 text-white p-4 sm:p-5 rounded-2xl border border-secondary/40 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-start gap-3 sm:gap-4 shadow-md">
-                        <i class="fas fa-award text-3xl sm:text-4xl text-secondary shrink-0"></i>
+                    <div class="bg-gradient-to-r from-primary to-slate-900 text-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-secondary/40 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-start gap-2.5 sm:gap-4 shadow-sm">
+                        <i class="fas fa-award text-2xl sm:text-4xl text-secondary shrink-0"></i>
                         <div>
-                            <div class="font-bold text-secondary text-sm sm:text-base lang-ar">مقاول معتمد لدى حكومة دبي وحكومة الشارقة وهيئة الطرق والمواصلات (SRTA)</div>
-                            <div class="font-bold text-secondary text-sm sm:text-base lang-en">Approved Contractor by Government of Dubai, Sharjah & SRTA</div>
-                            <div class="text-xs text-slate-300 mt-1 leading-relaxed lang-ar">شريك موثوق لكبرى الهيئات الحكومية مثل هيئة قناة السويس وهيئة الطرق والمواصلات بالشارقة.</div>
-                            <div class="text-xs text-slate-300 mt-1 leading-relaxed lang-en">Trusted partner for Suez Canal Authority and Sharjah Roads & Transport Authority (SRTA).</div>
+                            <div class="font-bold text-secondary text-xs sm:text-base lang-ar">مقاول معتمد لدى حكومة دبي وحكومة الشارقة وهيئة الطرق والمواصلات (SRTA)</div>
+                            <div class="font-bold text-secondary text-xs sm:text-base lang-en">Approved Contractor by Government of Dubai, Sharjah & SRTA</div>
+                            <div class="text-[11px] sm:text-xs text-slate-300 mt-0.5 sm:mt-1 leading-relaxed lang-ar">شريك موثوق لكبرى الهيئات الحكومية مثل هيئة قناة السويس وهيئة الطرق والمواصلات بالشارقة.</div>
+                            <div class="text-[11px] sm:text-xs text-slate-300 mt-0.5 sm:mt-1 leading-relaxed lang-en">Trusted partner for Suez Canal Authority and Sharjah Roads & Transport Authority (SRTA).</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-56 sm:h-64 flex flex-col items-center justify-end p-4 text-center border border-secondary/40 group">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div class="relative rounded-xl overflow-hidden shadow-md h-44 sm:h-64 flex flex-col items-center justify-end p-3.5 sm:p-4 text-center border border-secondary/40 group">
                             <img src="kalba_breakwater.jpg" alt="Breakwaters" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
                             <div class="relative z-10">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center text-secondary text-lg sm:text-xl mb-2">
+                                <div class="w-9 h-9 sm:w-12 sm:h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-xs flex items-center justify-center text-secondary text-base sm:text-xl mb-1.5 sm:mb-2">
                                     <i class="fas fa-water"></i>
                                 </div>
-                                <span class="text-white font-bold text-sm block mb-0.5 lang-ar">حماية الشواطئ وكواسر الأمواج</span>
-                                <span class="text-white font-bold text-sm block mb-0.5 lang-en">Beach Protection & Breakwaters</span>
-                                <span class="text-[11px] text-secondary font-semibold block lang-ar">مشروع شاطئ كلباء - الشارقة</span>
-                                <span class="text-[11px] text-secondary font-semibold block lang-en">Kalba Beach Project - Sharjah</span>
+                                <span class="text-white font-bold text-xs sm:text-sm block mb-0.5 lang-ar">حماية الشواطئ وكواسر الأمواج</span>
+                                <span class="text-white font-bold text-xs sm:text-sm block mb-0.5 lang-en">Beach Protection & Breakwaters</span>
+                                <span class="text-[10px] sm:text-[11px] text-secondary font-semibold block lang-ar">مشروع شاطئ كلباء - الشارقة</span>
+                                <span class="text-[10px] sm:text-[11px] text-secondary font-semibold block lang-en">Kalba Beach Project - Sharjah</span>
                             </div>
                         </div>
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-56 sm:h-64 sm:mt-6 flex flex-col items-center justify-end p-4 text-center border border-secondary/40 group">
+                        <div class="relative rounded-xl overflow-hidden shadow-md h-44 sm:h-64 sm:mt-6 flex flex-col items-center justify-end p-3.5 sm:p-4 text-center border border-secondary/40 group">
                             <img src="lake_mariout_dredging.jpg" alt="Dredging Fleet" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
                             <div class="relative z-10">
-                                <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center text-secondary text-lg sm:text-xl mb-2">
+                                <div class="w-9 h-9 sm:w-12 sm:h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-xs flex items-center justify-center text-secondary text-base sm:text-xl mb-1.5 sm:mb-2">
                                     <i class="fas fa-ship"></i>
                                 </div>
-                                <span class="text-white font-bold text-sm block mb-0.5 lang-ar">أسطول الكراكات والمنصات</span>
-                                <span class="text-white font-bold text-sm block mb-0.5 lang-en">Dredging Fleet & Pontoons</span>
-                                <span class="text-[11px] text-secondary font-semibold block lang-ar">قدرة 7 مليون م³ شهرياً</span>
-                                <span class="text-[11px] text-secondary font-semibold block lang-en">7M m³/Month Capacity</span>
+                                <span class="text-white font-bold text-xs sm:text-sm block mb-0.5 lang-ar">أسطول الكراكات والمنصات</span>
+                                <span class="text-white font-bold text-xs sm:text-sm block mb-0.5 lang-en">Dredging Fleet & Pontoons</span>
+                                <span class="text-[10px] sm:text-[11px] text-secondary font-semibold block lang-ar">قدرة 7 مليون م³ شهرياً</span>
+                                <span class="text-[10px] sm:text-[11px] text-secondary font-semibold block lang-en">7M m³/Month Capacity</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg border border-slate-700">
-                        <h4 class="font-bold text-secondary mb-3 text-sm uppercase tracking-wider lang-ar">توزيع قطاعات أعمال الشركة (وفقاً للتقارير المالية)</h4>
-                        <h4 class="font-bold text-secondary mb-3 text-sm uppercase tracking-wider lang-en">Revenue Breakdown by Sector (AED 497M Total)</h4>
-                        <div class="space-y-2.5 text-xs">
+                    <div class="bg-slate-900 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-md border border-slate-700">
+                        <h4 class="font-bold text-secondary mb-2.5 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider lang-ar">توزيع قطاعات أعمال الشركة (وفقاً للتقارير المالية)</h4>
+                        <h4 class="font-bold text-secondary mb-2.5 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider lang-en">Revenue Breakdown by Sector (AED 497M Total)</h4>
+                        <div class="space-y-2 sm:space-y-2.5 text-xs">
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="lang-ar">الإنشاءات البحرية (Marine Construction)</span>
@@ -343,7 +368,7 @@
                                     <div class="bg-uaegreen h-full" style="width: 32%"></div>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 pt-2 text-[11px] text-slate-300">
+                            <div class="grid grid-cols-2 gap-2 sm:gap-4 pt-2 text-[10px] sm:text-[11px] text-slate-300">
                                 <div>• <span class="lang-ar">المنصات البحرية: (6%)</span><span class="lang-en">Marine Platforms: (6%)</span></div>
                                 <div>• <span class="lang-ar">كواسر الأمواج: (5%)</span><span class="lang-en">Breakwaters: (5%)</span></div>
                                 <div>• <span class="lang-ar">الأرصفة الجدارية: (4%)</span><span class="lang-en">Quay Walls: (4%)</span></div>
@@ -357,19 +382,19 @@
     </section>
 
     <!-- قسم الخدمات والأنشطة الهندسية (Services) -->
-    <section id="services" class="py-20 bg-slate-100">
+    <section id="services" class="py-12 sm:py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="text-secondary font-bold tracking-wider uppercase mb-2">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+                <div class="text-secondary font-bold tracking-wider uppercase mb-1.5 sm:mb-2 text-xs sm:text-sm">
                     <span class="lang-ar">أنشطتنا وخدماتنا المعتمدة</span>
                     <span class="lang-en">OUR CORE ACTIVITIES & SERVICES</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-3 sm:mb-4">
                     <span class="lang-ar">حلول متكاملة في الإنشاءات البحرية والمدنية والميكانيكية</span>
                     <span class="lang-en">Integrated Marine, Civil & Mechanical Engineering Solutions</span>
                 </h2>
-                <p class="text-slate-600 lang-ar">نقدم خدماتنا وفق أعلى معايير الجودة والسلامة المهنية (QA/QC & HSE) للهيئات الحكومية والشركات العالمية.</p>
-                <p class="text-slate-600 lang-en">Delivering technically sound and innovative projects with strict adherence to QA/QC and HSE standards.</p>
+                <p class="text-slate-600 text-xs sm:text-base lang-ar">نقدم خدماتنا وفق أعلى معايير الجودة والسلامة المهنية (QA/QC & HSE) للهيئات الحكومية والشركات العالمية.</p>
+                <p class="text-slate-600 text-xs sm:text-base lang-en">Delivering technically sound and innovative projects with strict adherence to QA/QC and HSE standards.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -479,21 +504,21 @@
     </section>
 
     <!-- قسم الأسطول والمعدات (Fleet & Equipment) -->
-    <section id="fleet" class="py-20 bg-primary text-white">
+    <section id="fleet" class="py-12 sm:py-20 bg-primary text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <div class="text-secondary font-bold tracking-wider uppercase mb-2">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <div class="text-secondary font-bold tracking-wider uppercase mb-1.5 sm:mb-2 text-xs sm:text-sm">
                     <span class="lang-ar">القدرات اللوجستية والهندسية</span>
                     <span class="lang-en">FLEET, MACHINERY & SURVEY EQUIPMENT</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
                     <span class="lang-ar">أسطول ضخم من الكراكات البحرية والمعدات الثقيلة</span>
                     <span class="lang-en">16 Advanced Dredgers & Heavy Construction Fleet</span>
                 </h2>
-                <p class="text-slate-300 text-sm lang-ar">
+                <p class="text-slate-300 text-xs sm:text-sm lang-ar">
                     تمتلك الشركة أسطولاً يضم 16 كراكة متطورة قادرة على تكريك 7 مليون متر مكعب شهرياً، بالإضافة إلى قوارب العمل متعددة الأغراض، المنصات العائمة، والروافع والحفارات ذات الذراع الطويل.
                 </p>
-                <p class="text-slate-300 text-sm lang-en">
+                <p class="text-slate-300 text-xs sm:text-sm lang-en">
                     Owning a fleet of 16 advanced dredgers with a monthly capacity of 7 Million m³, alongside multi-purpose work boats, modular floating pontoons, and heavy earthmoving machinery.
                 </p>
             </div>
@@ -548,38 +573,38 @@
     </section>
 
     <!-- قسم المشاريع وسابقة الأعمال (Projects) بدون أسعار وبدون المشاريع المحذوفة -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="py-12 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12">
                 <div>
-                    <div class="text-secondary font-bold tracking-wider uppercase mb-2">
+                    <div class="text-secondary font-bold tracking-wider uppercase mb-1.5 sm:mb-2 text-xs sm:text-sm">
                         <span class="lang-ar">سابقة الأعمال والمشاريع الجارية</span>
                         <span class="lang-en">COMPLETED & ONGOING PROJECTS</span>
                     </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">
                         <span class="lang-ar">سجل حافل بالإنجازات في الإمارات ومصر</span>
                         <span class="lang-en">Major Projects in the UAE & Egypt</span>
                     </h2>
                 </div>
-                <p class="text-slate-600 max-w-md mt-4 md:mt-0 text-sm lang-ar">
+                <p class="text-slate-600 max-w-md mt-3 md:mt-0 text-xs sm:text-sm lang-ar">
                     تنفذ شركة تشييد حالياً حزمة من المشاريع البحرية الهامة في إمارة الشارقة (مدينة كلباء)، إلى جانب سجلها الحافل بمشاريع التكريك الكبرى في مصر.
                 </p>
-                <p class="text-slate-600 max-w-md mt-4 md:mt-0 text-sm lang-en">
+                <p class="text-slate-600 max-w-md mt-3 md:mt-0 text-xs sm:text-sm lang-en">
                     Executing key marine infrastructure projects across Sharjah (Kalba City), alongside mega dredging projects in Egypt.
                 </p>
             </div>
 
             <!-- أزرار تصفية المشاريع التفاعلية للموبايل والديسكتوب -->
-            <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10" id="project-filters">
-                <button onclick="filterProjects('all', this)" class="project-tab-btn px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition bg-secondary text-primary shadow-md">
+            <div class="flex flex-wrap justify-center items-center gap-1.5 sm:gap-3 mb-8 sm:mb-10" id="project-filters">
+                <button onclick="filterProjects('all', this)" class="project-tab-btn px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition bg-secondary text-primary shadow-xs sm:shadow-md">
                     <span class="lang-ar">جميع المشاريع (6)</span>
                     <span class="lang-en">All Projects (6)</span>
                 </button>
-                <button onclick="filterProjects('uae', this)" class="project-tab-btn px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300">
+                <button onclick="filterProjects('uae', this)" class="project-tab-btn px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300">
                     <span class="lang-ar">🇦🇪 مشاريع الإمارات (3)</span>
                     <span class="lang-en">🇦🇪 UAE Projects (3)</span>
                 </button>
-                <button onclick="filterProjects('egypt', this)" class="project-tab-btn px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300">
+                <button onclick="filterProjects('egypt', this)" class="project-tab-btn px-3 sm:px-6 py-1.5 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300">
                     <span class="lang-ar">🇪🇬 مشاريع مصر (3)</span>
                     <span class="lang-en">🇪🇬 Egypt Projects (3)</span>
                 </button>
@@ -778,68 +803,68 @@
     </section>
 
     <!-- قسم التراخيص والاعتمادات الرسمية (Licenses & Registrations) -->
-    <section id="licenses" class="py-16 bg-slate-900 text-white border-t border-slate-800">
+    <section id="licenses" class="py-12 sm:py-16 bg-slate-900 text-white border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <div class="text-secondary font-bold tracking-wider uppercase mb-2">
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+                <div class="text-secondary font-bold tracking-wider uppercase mb-1.5 sm:mb-2 text-xs sm:text-sm">
                     <span class="lang-ar">الاعتمادات القانونية والتراخيص الرسمية</span>
                     <span class="lang-en">OFFICIAL LICENSES & TAX REGISTRATIONS</span>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold mb-3">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3">
                     <span class="lang-ar">مسجلون ومعتمدون رسمياً في الإمارات وسلطنة عُمان ومصر</span>
                     <span class="lang-en">Licensed Across Dubai, Sharjah, Sultanate of Oman & Egypt</span>
                 </h2>
-                <p class="text-slate-400 text-sm lang-ar">نعمل تحت مظلة قانونية راسخة وتراخيص تجارية وضريبية معتمدة لدى الجهات الحكومية.</p>
-                <p class="text-slate-400 text-sm lang-en">Operating with full regulatory compliance, commercial licenses, and tax registrations across the region.</p>
+                <p class="text-slate-400 text-xs sm:text-sm lang-ar">نعمل تحت مظلة قانونية راسخة وتراخيص تجارية وضريبية معتمدة لدى الجهات الحكومية.</p>
+                <p class="text-slate-400 text-xs sm:text-sm lang-en">Operating with full regulatory compliance, commercial licenses, and tax registrations across the region.</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="bg-white/5 p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
-                    <div class="text-secondary text-2xl mb-3"><i class="fas fa-building"></i></div>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-ar">حكومة دبي - دائرة الاقتصاد</h3>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-en">Government of Dubai (DET)</h3>
-                    <p class="text-xs text-slate-300 mb-3 lang-ar">تشيد العالمية للمقاولات (فرع دبي) - مقاولات إنشاء الطرق والإنشاءات</p>
-                    <p class="text-xs text-slate-300 mb-3 lang-en">TSHYD International Contracting (Dubai Branch) - Road & Civil Contracting</p>
-                    <div class="text-xs font-mono bg-black/40 p-2.5 rounded text-secondary border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+                <div class="bg-white/5 p-4 sm:p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
+                    <div class="text-secondary text-xl sm:text-2xl mb-2 sm:mb-3"><i class="fas fa-building"></i></div>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-ar">حكومة دبي - دائرة الاقتصاد</h3>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-en">Government of Dubai (DET)</h3>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-ar">تشيد العالمية للمقاولات (فرع دبي) - مقاولات إنشاء الطرق والإنشاءات</p>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-en">TSHYD International Contracting (Dubai Branch) - Road & Civil Contracting</p>
+                    <div class="text-[11px] sm:text-xs font-mono bg-black/40 p-2 sm:p-2.5 rounded text-secondary border border-white/10">
                         <div>License No: <strong>1225725</strong></div>
                         <div>Register No: <strong>2059832</strong></div>
                         <div>DCCI No: <strong>479353</strong></div>
                     </div>
                 </div>
 
-                <div class="bg-white/5 p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
-                    <div class="text-secondary text-2xl mb-3"><i class="fas fa-landmark"></i></div>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-ar">حكومة الشارقة - التنمية الاقتصادية</h3>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-en">Government of Sharjah (SEDD)</h3>
-                    <p class="text-xs text-slate-300 mb-3 lang-ar">تشيد العالمية للمقاولات (فرع الشارقة) - مقاولات بناء</p>
-                    <p class="text-xs text-slate-300 mb-3 lang-en">TSHYD International Contracting (Sharjah Branch) - Building Contracting</p>
-                    <div class="text-xs font-mono bg-black/40 p-2.5 rounded text-secondary border border-white/10">
+                <div class="bg-white/5 p-4 sm:p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
+                    <div class="text-secondary text-xl sm:text-2xl mb-2 sm:mb-3"><i class="fas fa-landmark"></i></div>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-ar">حكومة الشارقة - التنمية الاقتصادية</h3>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-en">Government of Sharjah (SEDD)</h3>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-ar">تشيد العالمية للمقاولات (فرع الشارقة) - مقاولات بناء</p>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-en">TSHYD International Contracting (Sharjah Branch) - Building Contracting</p>
+                    <div class="text-[11px] sm:text-xs font-mono bg-black/40 p-2 sm:p-2.5 rounded text-secondary border border-white/10">
                         <div>License No: <strong>909595</strong></div>
                         <div>Registration No: <strong>906981</strong></div>
                         <div>Investor No: <strong>4998979</strong></div>
                     </div>
                 </div>
 
-                <div class="bg-white/5 p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
-                    <div class="text-secondary text-2xl mb-3"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-ar">الهيئة الاتحادية للضرائب - الإمارات</h3>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-en">UAE Federal Tax Authority (VAT)</h3>
-                    <p class="text-xs text-slate-300 mb-3 lang-ar">شهادة التسجيل في ضريبة القيمة المضافة بدولة الإمارات العربية المتحدة</p>
-                    <p class="text-xs text-slate-300 mb-3 lang-en">Certificate of Registration for Value Added Tax in the UAE</p>
-                    <div class="text-xs font-mono bg-black/40 p-2.5 rounded text-secondary border border-white/10">
+                <div class="bg-white/5 p-4 sm:p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
+                    <div class="text-secondary text-xl sm:text-2xl mb-2 sm:mb-3"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-ar">الهيئة الاتحادية للضرائب - الإمارات</h3>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-en">UAE Federal Tax Authority (VAT)</h3>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-ar">شهادة التسجيل في ضريبة القيمة المضافة بدولة الإمارات العربية المتحدة</p>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-en">Certificate of Registration for Value Added Tax in the UAE</p>
+                    <div class="text-[11px] sm:text-xs font-mono bg-black/40 p-2 sm:p-2.5 rounded text-secondary border border-white/10">
                         <div>TRN: <strong>104211349600003</strong></div>
                         <div>Cert: <strong>2024/VAT/0000273828</strong></div>
                         <div>Status: <strong>Active & Verified</strong></div>
                     </div>
                 </div>
 
-                <div class="bg-white/5 p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
-                    <div class="text-secondary text-2xl mb-3"><i class="fas fa-globe-asia"></i></div>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-ar">سلطنة عُمان - السجل التجاري</h3>
-                    <h3 class="font-bold text-lg text-white mb-1 lang-en">Sultanate of Oman (MOCIIP)</h3>
-                    <p class="text-xs text-slate-300 mb-3 lang-ar">البحر الأحمر العالمية للمقاولات والتجارة (فرع مسقط - عُمان)</p>
-                    <p class="text-xs text-slate-300 mb-3 lang-en">Red Sea International for Contracting & Trading (Oman Branch)</p>
-                    <div class="text-xs font-mono bg-black/40 p-2.5 rounded text-secondary border border-white/10">
+                <div class="bg-white/5 p-4 sm:p-6 rounded-xl border border-secondary/40 hover:bg-white/10 transition">
+                    <div class="text-secondary text-xl sm:text-2xl mb-2 sm:mb-3"><i class="fas fa-globe-asia"></i></div>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-ar">سلطنة عُمان - السجل التجاري</h3>
+                    <h3 class="font-bold text-base sm:text-lg text-white mb-1 lang-en">Sultanate of Oman (MOCIIP)</h3>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-ar">البحر الأحمر العالمية للمقاولات والتجارة (فرع مسقط - عُمان)</p>
+                    <p class="text-[11px] sm:text-xs text-slate-300 mb-2.5 sm:mb-3 lang-en">Red Sea International for Contracting & Trading (Oman Branch)</p>
+                    <div class="text-[11px] sm:text-xs font-mono bg-black/40 p-2 sm:p-2.5 rounded text-secondary border border-white/10">
                         <div>CR Number: <strong>1534849</strong></div>
                         <div>Tax Reg No: <strong>2057652</strong></div>
                         <div>Activity: <strong>410001 Construction</strong></div>
@@ -847,17 +872,17 @@
                 </div>
             </div>
 
-            <div class="flex flex-wrap justify-center items-center gap-6 pt-6 border-t border-white/10 opacity-90">
-                <div class="bg-white/10 px-6 py-3 rounded-lg border border-white/20 text-sm font-bold tracking-wider">
+            <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-6 pt-4 sm:pt-6 border-t border-white/10 opacity-90 text-xs sm:text-sm">
+                <div class="bg-white/10 px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 font-bold tracking-wider text-center">
                     SHARJAH ROADS & TRANSPORT AUTHORITY (SRTA)
                 </div>
-                <div class="bg-white/10 px-6 py-3 rounded-lg border border-white/20 text-sm font-bold tracking-wider">
+                <div class="bg-white/10 px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 font-bold tracking-wider text-center">
                     SUEZ CANAL AUTHORITY
                 </div>
-                <div class="bg-white/10 px-6 py-3 rounded-lg border border-white/20 text-sm font-bold tracking-wider">
+                <div class="bg-white/10 px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 font-bold tracking-wider text-center">
                     JACOBS ENGINEERING
                 </div>
-                <div class="bg-white/10 px-6 py-3 rounded-lg border border-white/20 text-sm font-bold tracking-wider">
+                <div class="bg-white/10 px-4 sm:px-6 py-2 sm:py-3 rounded-lg border border-white/20 font-bold tracking-wider text-center">
                     EGYPTIAN DREDGING COMPANY
                 </div>
             </div>
@@ -865,7 +890,7 @@
     </section>
 
     <!-- قسم تواصل معنا (Contact Us) -->
-    <section id="contact" class="py-20 bg-slate-50">
+    <section id="contact" class="py-12 sm:py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
@@ -1148,7 +1173,7 @@
     </script>
 
     <!-- زر واتساب وتواصل سريع عائم للموبايل والديسكتوب -->
-    <a href="https://wa.me/971506343684?text=Hello%20TSHYD%20Contracting" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 end-5 z-40 w-13 h-13 sm:w-14 sm:h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-2 border-white/90" aria-label="WhatsApp Direct Chat">
+    <a href="https://wa.me/971506343684?text=Hello%20TSHYD%20Contracting" target="_blank" rel="noopener noreferrer" class="fixed bottom-5 end-4 sm:bottom-6 sm:end-6 z-40 w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group border-2 border-white/90" aria-label="WhatsApp Direct Chat">
         <i class="fab fa-whatsapp"></i>
         <span class="absolute end-16 bg-slate-900 text-white text-xs font-bold py-1.5 px-3 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hidden sm:block pointer-events-none">
             <span class="lang-ar">تحدث معنا مباشرة عبر واتساب</span>
