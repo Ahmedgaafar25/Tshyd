@@ -30,9 +30,15 @@
         }
     </script>
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5.5rem;
+            overflow-x: hidden;
+        }
         body {
             font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
         html[lang="en"] body {
             font-family: 'Montserrat', sans-serif;
@@ -41,7 +47,12 @@
             background: linear-gradient(rgba(24, 24, 27, 0.88), rgba(24, 24, 27, 0.78)), url('https://images.unsplash.com/photo-1541888946425-d09bb18086f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
+        }
+        @media (min-width: 768px) {
+            .hero-bg {
+                background-attachment: fixed;
+            }
         }
         .service-card:hover {
             transform: translateY(-5px);
@@ -57,133 +68,133 @@
 <body class="bg-slate-50 text-slate-800">
 
     <!-- شريط التنقل (Navbar) -->
-    <nav class="bg-white text-primary fixed w-full z-50 shadow-md border-b border-slate-200 transition-all duration-300">
+    <nav class="bg-white/95 backdrop-blur-md text-primary fixed w-full z-50 shadow-md border-b border-slate-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24 items-center">
+            <div class="flex justify-between h-20 sm:h-24 items-center">
                 <!-- الشعار الرسمي الجديد TSHYD -->
-                <a href="#home" class="flex items-center gap-3 group">
-                    <div class="w-16 h-16 flex items-center justify-center shrink-0 bg-white rounded-lg p-1 border border-secondary/30 shadow-sm">
+                <a href="#home" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0 bg-white rounded-lg p-1 border border-secondary/30 shadow-sm">
                         <img src="tshyd_emblem.png" alt="TSHYD Emblem" class="w-full h-full object-contain">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-cinzel font-extrabold text-2xl sm:text-3xl tracking-widest leading-none text-primary">TSHYD</span>
-                        <span class="text-[10px] sm:text-xs font-bold text-slate-700 tracking-[0.18em] mt-1">INTERNATIONAL CONTRACTING</span>
-                        <div class="flex items-center gap-2 mt-1">
-                            <span class="text-[9px] font-bold text-slate-500 tracking-wider uppercase">UNITED ARAB EMIRATES</span>
+                        <span class="font-cinzel font-extrabold text-lg sm:text-2xl md:text-3xl tracking-widest leading-none text-primary">TSHYD</span>
+                        <span class="text-[9px] sm:text-[11px] md:text-xs font-bold text-slate-700 tracking-[0.14em] sm:tracking-[0.18em] mt-1">INTERNATIONAL CONTRACTING</span>
+                        <div class="flex items-center gap-1.5 sm:gap-2 mt-0.5 sm:mt-1">
+                            <span class="text-[8px] sm:text-[9px] font-bold text-slate-500 tracking-wider uppercase">UNITED ARAB EMIRATES</span>
                             <div class="flex items-center gap-1">
-                                <span class="w-2 h-2 rounded-full bg-uaered inline-block"></span>
-                                <span class="w-2 h-2 rounded-full bg-uaegreen inline-block"></span>
-                                <span class="w-2 h-2 rounded-full bg-white border border-slate-400 inline-block"></span>
-                                <span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-uaered inline-block"></span>
+                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-uaegreen inline-block"></span>
+                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white border border-slate-400 inline-block"></span>
+                                <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary inline-block"></span>
                             </div>
                         </div>
                     </div>
                 </a>
 
                 <!-- الروابط للشاشات الكبيرة -->
-                <div class="hidden lg:flex items-center space-x-8 space-x-reverse">
-                    <a href="#home" class="text-primary hover:text-secondary transition font-bold lang-ar">الرئيسية</a>
-                    <a href="#home" class="text-primary hover:text-secondary transition font-bold lang-en">Home</a>
+                <div class="hidden lg:flex items-center gap-3.5 xl:gap-6 text-xs xl:text-sm font-bold">
+                    <a href="#home" class="text-primary hover:text-secondary transition lang-ar">الرئيسية</a>
+                    <a href="#home" class="text-primary hover:text-secondary transition lang-en">Home</a>
 
-                    <a href="#about" class="text-primary hover:text-secondary transition font-bold lang-ar">عن الشركة</a>
-                    <a href="#about" class="text-primary hover:text-secondary transition font-bold lang-en">About Us</a>
+                    <a href="#about" class="text-primary hover:text-secondary transition lang-ar">عن الشركة</a>
+                    <a href="#about" class="text-primary hover:text-secondary transition lang-en">About Us</a>
 
-                    <a href="#services" class="text-primary hover:text-secondary transition font-bold lang-ar">خدماتنا</a>
-                    <a href="#services" class="text-primary hover:text-secondary transition font-bold lang-en">Services</a>
+                    <a href="#services" class="text-primary hover:text-secondary transition lang-ar">خدماتنا</a>
+                    <a href="#services" class="text-primary hover:text-secondary transition lang-en">Services</a>
 
-                    <a href="#fleet" class="text-primary hover:text-secondary transition font-bold lang-ar">الأسطول والمعدات</a>
-                    <a href="#fleet" class="text-primary hover:text-secondary transition font-bold lang-en">Fleet & Equipment</a>
+                    <a href="#fleet" class="text-primary hover:text-secondary transition lang-ar">الأسطول والمعدات</a>
+                    <a href="#fleet" class="text-primary hover:text-secondary transition lang-en">Fleet & Equipment</a>
 
-                    <a href="#projects" class="text-primary hover:text-secondary transition font-bold lang-ar">مشاريعنا</a>
-                    <a href="#projects" class="text-primary hover:text-secondary transition font-bold lang-en">Projects</a>
+                    <a href="#projects" class="text-primary hover:text-secondary transition lang-ar">مشاريعنا</a>
+                    <a href="#projects" class="text-primary hover:text-secondary transition lang-en">Projects</a>
 
-                    <a href="#licenses" class="text-primary hover:text-secondary transition font-bold lang-ar">التراخيص</a>
-                    <a href="#licenses" class="text-primary hover:text-secondary transition font-bold lang-en">Licenses</a>
+                    <a href="#licenses" class="text-primary hover:text-secondary transition lang-ar">التراخيص</a>
+                    <a href="#licenses" class="text-primary hover:text-secondary transition lang-en">Licenses</a>
 
-                    <a href="#contact" class="text-primary hover:text-secondary transition font-bold lang-ar">اتصل بنا</a>
-                    <a href="#contact" class="text-primary hover:text-secondary transition font-bold lang-en">Contact</a>
+                    <a href="#contact" class="text-primary hover:text-secondary transition lang-ar">اتصل بنا</a>
+                    <a href="#contact" class="text-primary hover:text-secondary transition lang-en">Contact</a>
 
                     <!-- زر تغيير اللغة -->
-                    <button onclick="toggleLanguage()" class="bg-primary text-secondary border border-secondary px-4 py-2 rounded font-bold hover:bg-secondary hover:text-white transition flex items-center gap-2 shadow-sm">
-                        <i class="fas fa-globe"></i>
+                    <button onclick="toggleLanguage()" class="bg-primary text-secondary border border-secondary px-3 sm:px-4 py-1.5 sm:py-2 rounded font-bold hover:bg-secondary hover:text-white transition flex items-center gap-1.5 shadow-sm">
+                        <i class="fas fa-globe text-xs"></i>
                         <span class="lang-ar">EN</span>
                         <span class="lang-en">عربي</span>
                     </button>
                 </div>
 
                 <!-- زر القائمة للموبايل -->
-                <div class="lg:hidden flex items-center gap-3">
-                    <button onclick="toggleLanguage()" class="bg-primary text-secondary px-3 py-1.5 rounded font-bold text-sm">
+                <div class="lg:hidden flex items-center gap-2">
+                    <button onclick="toggleLanguage()" class="bg-primary text-secondary px-2.5 py-1.5 rounded font-bold text-xs border border-secondary/40">
                         <span class="lang-ar">EN</span>
                         <span class="lang-en">عربي</span>
                     </button>
-                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary focus:outline-none p-2">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="mobile-menu-btn" class="text-primary hover:text-secondary focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Toggle navigation">
+                        <i id="menu-icon" class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- قائمة الموبايل -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-2 pb-4 space-y-2 shadow-lg">
-            <a href="#home" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">الرئيسية</a>
-            <a href="#home" class="block py-2 font-bold text-primary hover:text-secondary lang-en">Home</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 pt-3 pb-5 space-y-1 shadow-2xl max-h-[85vh] overflow-y-auto">
+            <a href="#home" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">الرئيسية</a>
+            <a href="#home" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-en">Home</a>
             
-            <a href="#about" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">عن الشركة</a>
-            <a href="#about" class="block py-2 font-bold text-primary hover:text-secondary lang-en">About Us</a>
+            <a href="#about" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">عن الشركة</a>
+            <a href="#about" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-en">About Us</a>
             
-            <a href="#services" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">خدماتنا</a>
-            <a href="#services" class="block py-2 font-bold text-primary hover:text-secondary lang-en">Services</a>
+            <a href="#services" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">خدماتنا</a>
+            <a href="#services" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-en">Services</a>
 
-            <a href="#fleet" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">الأسطول والمعدات</a>
-            <a href="#fleet" class="block py-2 font-bold text-primary hover:text-secondary lang-en">Fleet & Equipment</a>
+            <a href="#fleet" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">الأسطول والمعدات</a>
+            <a href="#fleet" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-en">Fleet & Equipment</a>
             
-            <a href="#projects" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">مشاريعنا</a>
-            <a href="#projects" class="block py-2 font-bold text-primary hover:text-secondary lang-en">Projects</a>
+            <a href="#projects" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">مشاريعنا</a>
+            <a href="#projects" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-en">Projects</a>
 
-            <a href="#licenses" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">التراخيص</a>
-            <a href="#licenses" class="block py-2 font-bold text-primary hover:text-secondary lang-en">Licenses</a>
+            <a href="#licenses" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">التراخيص</a>
+            <a href="#licenses" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:text-secondary transition lang-en">Licenses</a>
             
-            <a href="#contact" class="block py-2 font-bold text-primary hover:text-secondary lang-ar">اتصل بنا</a>
-            <a href="#contact" class="block py-2 font-bold text-primary hover:text-secondary lang-en">Contact</a>
+            <a href="#contact" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-ar">اتصل بنا</a>
+            <a href="#contact" class="mobile-nav-link block py-2.5 px-3 rounded-lg font-bold text-primary hover:bg-slate-100 hover:text-secondary transition lang-en">Contact</a>
         </div>
     </nav>
 
     <!-- القسم الرئيسي (Hero Section) مع مسافات رأسية محسنة لمنع التداخل -->
-    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-16">
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-16 sm:pb-20">
         <div class="max-w-5xl mx-auto text-white">
             <!-- الشعار الرسمي في المنتصف -->
-            <div class="w-48 sm:w-56 mx-auto mb-6 bg-white/95 p-4 rounded-2xl shadow-2xl border-2 border-secondary flex items-center justify-center">
+            <div class="w-36 sm:w-48 md:w-56 mx-auto mb-6 bg-white/95 p-3.5 sm:p-5 rounded-2xl shadow-2xl border-2 border-secondary flex items-center justify-center">
                 <img src="tshyd_logo.png" alt="TSHYD Logo" class="w-full h-auto object-contain">
             </div>
 
-            <div class="inline-flex items-center gap-3 bg-secondary/20 border border-secondary text-secondary px-5 py-2 rounded-full text-sm font-semibold mb-6">
-                <span class="w-2.5 h-2.5 rounded-full bg-uaegreen"></span>
+            <div class="inline-flex items-center gap-2 sm:gap-3 bg-secondary/20 border border-secondary text-secondary px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-6">
+                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-uaegreen"></span>
                 <span class="lang-ar">الإمارات • مصر • سلطنة عُمان • السعودية</span>
                 <span class="lang-en">UAE • Egypt • Oman • Saudi Arabia</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-uaered"></span>
+                <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-uaered"></span>
             </div>
             
-            <!-- عنوان رئيسي مع مسافة رأسية واسعة ومريحة جداً لمنع التداخل -->
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-10 leading-[2.5]">
-                <span class="lang-ar block mb-6">الريادة في الإنشاءات البحرية،</span>
+            <!-- عنوان رئيسي مع خط متجاوب ومريح -->
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-6 sm:mb-8 leading-snug sm:leading-tight md:leading-normal">
+                <span class="lang-ar block mb-2 sm:mb-3">الريادة في الإنشاءات البحرية،</span>
                 <span class="lang-ar block text-secondary">التكريك، ومشاريع البنية التحتية الكبرى</span>
                 
-                <span class="lang-en block mb-6">Pioneers in Marine Construction,</span>
+                <span class="lang-en block mb-2 sm:mb-3">Pioneers in Marine Construction,</span>
                 <span class="lang-en block text-secondary">Dredging & Mega Infrastructure</span>
             </h1>
             
-            <p class="text-base md:text-xl text-slate-200 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-sm sm:text-base md:text-lg text-slate-200 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
                 <span class="lang-ar">شركة تشييد للمقاولات الدولية (فرع شركة البحر الأحمر العالمية للمقاولات والتجارة) تقدم حلولاً هندسية متكاملة في الأعمال البحرية، تعميق الموانئ، كواسر الأمواج، الطرق، والأعمال الكهروميكانيكية بأسطول يضم 16 كراكة بحرية وأكثر من 1500 خبير ومهندس.</span>
                 <span class="lang-en">TSHYD International Contracting (Branch of Al Bahar Al Ahmar International Contracting) delivers turnkey marine engineering, port dredging, breakwaters, roads, and MEP works powered by 16 advanced dredgers and 1,500+ professionals.</span>
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projects" class="bg-secondary text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-amber-600 hover:text-white transition shadow-lg">
+            <div class="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
+                <a href="#projects" class="bg-secondary text-primary px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-amber-600 hover:text-white transition shadow-lg text-center">
                     <span class="lang-ar">استكشف مشاريعنا في الإمارات ومصر</span>
                     <span class="lang-en">Explore Our UAE & Egypt Projects</span>
                 </a>
-                <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-primary transition">
+                <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-white hover:text-primary transition text-center">
                     <span class="lang-ar">تواصل مع الإدارة الهندسية</span>
                     <span class="lang-en">Contact Engineering Dept</span>
                 </a>
@@ -277,12 +288,12 @@
                 </div>
                 
                 <div class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-64 flex flex-col items-center justify-end p-4 text-center border border-secondary/40 group">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="relative rounded-xl overflow-hidden shadow-lg h-56 sm:h-64 flex flex-col items-center justify-end p-4 text-center border border-secondary/40 group">
                             <img src="kalba_breakwater.jpg" alt="Breakwaters" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
                             <div class="relative z-10">
-                                <div class="w-12 h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center text-secondary text-xl mb-2">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center text-secondary text-lg sm:text-xl mb-2">
                                     <i class="fas fa-water"></i>
                                 </div>
                                 <span class="text-white font-bold text-sm block mb-0.5 lang-ar">حماية الشواطئ وكواسر الأمواج</span>
@@ -291,11 +302,11 @@
                                 <span class="text-[11px] text-secondary font-semibold block lang-en">Kalba Beach Project - Sharjah</span>
                             </div>
                         </div>
-                        <div class="relative rounded-xl overflow-hidden shadow-lg h-64 mt-6 flex flex-col items-center justify-end p-4 text-center border border-secondary/40 group">
+                        <div class="relative rounded-xl overflow-hidden shadow-lg h-56 sm:h-64 sm:mt-6 flex flex-col items-center justify-end p-4 text-center border border-secondary/40 group">
                             <img src="lake_mariout_dredging.jpg" alt="Dredging Fleet" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
                             <div class="relative z-10">
-                                <div class="w-12 h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center text-secondary text-xl mb-2">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-secondary/30 backdrop-blur-sm flex items-center justify-center text-secondary text-lg sm:text-xl mb-2">
                                     <i class="fas fa-ship"></i>
                                 </div>
                                 <span class="text-white font-bold text-sm block mb-0.5 lang-ar">أسطول الكراكات والمنصات</span>
@@ -359,95 +370,107 @@
                 <p class="text-slate-600 lang-en">Delivering technically sound and innovative projects with strict adherence to QA/QC and HSE standards.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 <!-- خدمة 1: الإنشاءات البحرية والموانئ -->
-                <div class="bg-white rounded-xl shadow-md p-8 service-card transition-all duration-300 border-b-4 border-secondary">
-                    <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-anchor"></i>
+                <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 service-card transition-all duration-300 border-b-4 border-secondary flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-anchor"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-ar">الإنشاءات البحرية وتطوير الموانئ</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-en">Marine & Port Construction</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-ar">
+                            إنشاء وتأهيل الموانئ والمراسي (Marinas)، كواسر الأمواج (Breakwaters)، الأرصفة البحرية (Jetties & Quay Walls)، منزلقات القوارب (Slipways)، الستائر اللوحية (Sheet Piles)، وحماية الشواطئ واستصلاحها.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-en">
+                            Construction & rehabilitation of ports, marinas, breakwaters, piled jetties, quay walls, slipways, sheet piling, tetrapods, and beach reclamation.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-ar">الإنشاءات البحرية وتطوير الموانئ</h3>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-en">Marine & Port Construction</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-ar">
-                        إنشاء وتأهيل الموانئ والمراسي (Marinas)، كواسر الأمواج (Breakwaters)، الأرصفة البحرية (Jetties & Quay Walls)، منزلقات القوارب (Slipways)، الستائر اللوحية (Sheet Piles)، وحماية الشواطئ واستصلاحها.
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-en">
-                        Construction & rehabilitation of ports, marinas, breakwaters, piled jetties, quay walls, slipways, sheet piling, tetrapods, and beach reclamation.
-                    </p>
                 </div>
 
                 <!-- خدمة 2: التكريك وتعميق الموانئ -->
-                <div class="bg-white rounded-xl shadow-md p-8 service-card transition-all duration-300 border-b-4 border-secondary">
-                    <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-ship"></i>
+                <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 service-card transition-all duration-300 border-b-4 border-secondary flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-ar">أعمال التكريك وتعميق الممرات الملاحية</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-en">Dredging & Sea Deepening</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-ar">
+                            تكريك وتعميق البحيرات والموانئ وقنوات الاقتراب، ضخ وتعبئة الرمال (Sand Pumping)، تكسير الصخور تحت الماء، وتنظيف أعماق الموانئ بقدرة تكريك تصل إلى 7 مليون م³ شهرياً.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-en">
+                            Basin & channel dredging, sea deepening, sand pumping, offshore land filling, underwater rock breaking, and port depth cleaning (7M m³/month capacity).
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-ar">أعمال التكريك وتعميق الممرات الملاحية</h3>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-en">Dredging & Sea Deepening</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-ar">
-                        تكريك وتعميق البحيرات والموانئ وقنوات الاقتراب، ضخ وتعبئة الرمال (Sand Pumping)، تكسير الصخور تحت الماء، وتنظيف أعماق الموانئ بقدرة تكريك تصل إلى 7 مليون م³ شهرياً.
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-en">
-                        Basin & channel dredging, sea deepening, sand pumping, offshore land filling, underwater rock breaking, and port depth cleaning (7M m³/month capacity).
-                    </p>
                 </div>
 
                 <!-- خدمة 3: الخطوط البحرية والغوص -->
-                <div class="bg-white rounded-xl shadow-md p-8 service-card transition-all duration-300 border-b-4 border-secondary">
-                    <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-water"></i>
+                <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 service-card transition-all duration-300 border-b-4 border-secondary flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-ar">الأنابيب البحرية، الغوص، ومآخذ المياه</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-en">Subsea Pipelines, Intakes & Diving</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-ar">
+                            مد خطوط الأنابيب والكابلات البحرية، إنشاء مآخذ المياه ومصبات الصرف العميقة (Water Intakes & Outfalls)، انتشال الحطام (Wreck Removal)، القطع واللحام تحت الماء، والحماية الكاثودية.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-en">
+                            Subsea pipelines & cables, water intake structures, deep sea discharge outfalls, wreck removal, underwater cutting/welding, and cathodic protection.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-ar">الأنابيب البحرية، الغوص، ومآخذ المياه</h3>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-en">Subsea Pipelines, Intakes & Diving</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-ar">
-                        مد خطوط الأنابيب والكابلات البحرية، إنشاء مآخذ المياه ومصبات الصرف العميقة (Water Intakes & Outfalls)، انتشال الحطام (Wreck Removal)، القطع واللحام تحت الماء، والحماية الكاثودية.
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-en">
-                        Subsea pipelines & cables, water intake structures, deep sea discharge outfalls, wreck removal, underwater cutting/welding, and cathodic protection.
-                    </p>
                 </div>
 
                 <!-- خدمة 4: الأعمال المدنية والطرق -->
-                <div class="bg-white rounded-xl shadow-md p-8 service-card transition-all duration-300 border-b-4 border-secondary">
-                    <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-road"></i>
+                <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 service-card transition-all duration-300 border-b-4 border-secondary flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-ar">مقاولات الطرق، الإنشاءات المدنية والهياكل</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-en">Road Works, Civil & Steel Structures</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-ar">
+                            مقاولات إنشاء الطرق وأنظمة النقل، المباني السكنية وغير السكنية، الهياكل المعدنية (Steel Structures)، ومستودعات وورش (K-Span).
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-en">
+                            Road construction, transportation systems, general building construction, steel structures, and K-Span warehouses & workshops.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-ar">مقاولات الطرق، الإنشاءات المدنية والهياكل</h3>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-en">Road Works, Civil & Steel Structures</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-ar">
-                        مقاولات إنشاء الطرق وأنظمة النقل، المباني السكنية وغير السكنية، الهياكل المعدنية (Steel Structures)، ومستودعات وورش (K-Span).
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-en">
-                        Road construction, transportation systems, general building construction, steel structures, and K-Span warehouses & workshops.
-                    </p>
                 </div>
 
                 <!-- خدمة 5: الأعمال الميكانيكية ومحطات المياه -->
-                <div class="bg-white rounded-xl shadow-md p-8 service-card transition-all duration-300 border-b-4 border-secondary">
-                    <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-cogs"></i>
+                <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 service-card transition-all duration-300 border-b-4 border-secondary flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-ar">الأعمال الميكانيكية ومحطات معالجة المياه</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-en">Mechanical Works & Water Plants</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-ar">
+                            تصميم وتركيب محطات معالجة المياه، شبكات المياه المبردة (Chilled Water)، أنظمة التكييف (HVAC)، الغلايات، مكافحة الحريق، العزل الحراري، وتجهيزات مصانع الأمونيا والهيدروجين.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-en">
+                            Design and installation of water treatment plants, chilled water networks, HVAC, boilers, fire-fighting systems, insulation, and specialized plant equipment.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-ar">الأعمال الميكانيكية ومحطات معالجة المياه</h3>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-en">Mechanical Works & Water Plants</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-ar">
-                        تصميم وتركيب محطات معالجة المياه، شبكات المياه المبردة (Chilled Water)، أنظمة التكييف (HVAC)، الغلايات، مكافحة الحريق، العزل الحراري، وتجهيزات مصانع الأمونيا والهيدروجين.
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-en">
-                        Design and installation of water treatment plants, chilled water networks, HVAC, boilers, fire-fighting systems, insulation, and specialized plant equipment.
-                    </p>
                 </div>
 
                 <!-- خدمة 6: المساحة البحرية وإدارة المشاريع -->
-                <div class="bg-white rounded-xl shadow-md p-8 service-card transition-all duration-300 border-b-4 border-secondary">
-                    <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <i class="fas fa-satellite-dish"></i>
+                <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 service-card transition-all duration-300 border-b-4 border-secondary flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-primary text-secondary rounded-lg flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-ar">المساحة الهيدروغرافية وإدارة المشروعات</h3>
+                        <h3 class="text-xl font-bold text-primary mb-3 lang-en">Hydrographic Survey & Consultancy</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-ar">
+                            مسح هيدروغرافي وبحري وجوي متكامل باستخدام أجهزة (Trimble, Multi-Beam Sonar, ROV, LiDAR Drones)، مع خدمات الاستشارات الهندسية، التخطيط، ومراقبة التكاليف (Cost Control).
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed lang-en">
+                            Land, hydrographic, geotechnical & aerial drone surveys (MBES, Side-Scan Sonar, ROV, Trimble), plus Project Management Consultancy (PMC).
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-ar">المساحة الهيدروغرافية وإدارة المشروعات</h3>
-                    <h3 class="text-xl font-bold text-primary mb-3 lang-en">Hydrographic Survey & Consultancy</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-ar">
-                        مسح هيدروغرافي وبحري وجوي متكامل باستخدام أجهزة (Trimble, Multi-Beam Sonar, ROV, LiDAR Drones)، مع خدمات الاستشارات الهندسية، التخطيط، ومراقبة التكاليف (Cost Control).
-                    </p>
-                    <p class="text-slate-600 text-sm leading-relaxed lang-en">
-                        Land, hydrographic, geotechnical & aerial drone surveys (MBES, Side-Scan Sonar, ROV, Trimble), plus Project Management Consultancy (PMC).
-                    </p>
                 </div>
             </div>
         </div>
@@ -473,8 +496,8 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-800/90 p-6 rounded-xl border border-secondary/30">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="bg-slate-800/90 p-5 sm:p-6 rounded-xl border border-secondary/30">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fas fa-dharmachakra text-3xl text-secondary"></i>
                         <div>
@@ -489,7 +512,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-slate-800/90 p-6 rounded-xl border border-secondary/30">
+                <div class="bg-slate-800/90 p-5 sm:p-6 rounded-xl border border-secondary/30">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fas fa-truck-monster text-3xl text-secondary"></i>
                         <div>
@@ -504,7 +527,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-slate-800/90 p-6 rounded-xl border border-secondary/30">
+                <div class="bg-slate-800/90 p-5 sm:p-6 rounded-xl border border-secondary/30">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fas fa-compass text-3xl text-secondary"></i>
                         <div>
@@ -552,7 +575,7 @@
                     <h3 class="text-2xl font-bold text-primary lang-en">United Arab Emirates Projects (Sharjah - Kalba City)</h3>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- مشروع 1: كاسر أمواج شاطئ كلباء -->
                     <div class="bg-slate-50 rounded-xl overflow-hidden shadow border border-slate-200 flex flex-col justify-between">
                         <div>
@@ -659,7 +682,7 @@
                     <h3 class="text-2xl font-bold text-primary lang-en">Major Completed Dredging Projects in Egypt (Suez Canal Authority)</h3>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="bg-primary text-white rounded-xl p-6 shadow-lg border-t-4 border-secondary flex flex-col justify-between">
                         <div>
                             <div class="w-full h-48 bg-slate-800 rounded-lg mb-4 flex flex-col items-center justify-center border border-secondary/30 overflow-hidden relative group">
@@ -916,7 +939,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-100 h-fit">
+                <div class="bg-white p-5 sm:p-8 rounded-xl shadow-lg border border-slate-100 h-fit">
                     <h3 class="text-2xl font-bold text-primary mb-6 lang-ar">طلب عرض سعر / مراسلة الإدارة</h3>
                     <h3 class="text-2xl font-bold text-primary mb-6 lang-en">Request a Proposal / Contact Us</h3>
                     
@@ -973,7 +996,7 @@
     <!-- التذييل (Footer) -->
     <footer class="bg-primary text-slate-400 py-12 border-t-4 border-secondary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-4">
+            <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-start">
                 <div class="w-20 sm:w-24 bg-white rounded-xl p-2 flex items-center justify-center shrink-0 shadow border border-secondary/30">
                     <img src="tshyd_logo.png" alt="TSHYD Logo" class="w-full h-auto object-contain">
                 </div>
@@ -984,7 +1007,7 @@
                     <span class="text-xs text-slate-400 block mt-1 lang-en">All Rights Reserved © 2026 TSHYD International Contracting</span>
                 </div>
             </div>
-            <div class="flex space-x-4 space-x-reverse">
+            <div class="flex items-center gap-3">
                 <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary hover:text-primary transition"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary hover:text-primary transition"><i class="fab fa-instagram"></i></a>
@@ -1004,10 +1027,59 @@
             }
         }
 
-        const btn = document.getElementById('mobile-menu-btn');
+        const menuBtn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMenu() {
+            const isHidden = menu.classList.toggle('hidden');
+            if (menuIcon) {
+                if (isHidden) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                }
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            if (menuIcon) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMenu();
+            });
+        }
+
+        // Close mobile menu on any navigation link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (menu && !menu.classList.contains('hidden')) {
+                if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+                    closeMenu();
+                }
+            }
+        });
+
+        // Close on window resize if larger than lg (1024px)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                closeMenu();
+            }
         });
     </script>
 </body>
